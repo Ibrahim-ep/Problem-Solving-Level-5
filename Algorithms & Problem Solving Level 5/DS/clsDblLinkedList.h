@@ -75,26 +75,20 @@ public:
 
     void InsertAtEnd(T Value)
     {
-        Node * newNode = new Node();
-
+        Node* newNode = new Node();
         newNode->Value = Value;
         newNode->Next = NULL;
-
-        if (Head == NULL)
-        {
-            Head->Previous = NULL;
+        if (Head == NULL) {
+            newNode->Previous = NULL;
             Head = newNode;
         }
-        else
-        {
-            Node *Current = Head;
-
-            while (Current->Next != NULL)
-            {
-                Current = Current->Next;
+        else {
+            Node* current = Head;
+            while (current->Next != NULL) {
+                current = current->Next;
             }
-            Current->Next = newNode;
-            newNode->Previous = Current;
+            current->Next = newNode;
+            newNode->Previous = current;
         }
         _Size++;
     }
@@ -260,7 +254,7 @@ public:
         Node * ItemNode = GetNode(Index);
 
         if (ItemNode == NULL)
-            return NULL;
+            return 0;
         else
             return ItemNode->Value;
     }
